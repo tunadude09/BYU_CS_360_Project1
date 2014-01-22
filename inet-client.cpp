@@ -22,7 +22,7 @@ InetClient::create() {
     }
 
     // setup socket address structure
-    memset(&server_addr,0,sizeof(server_addr));
+    memset(&server_addr,0,sizeof(server_addr)); //**this just fills sockaddr_in with 0's
     server_addr.sin_family = AF_INET;
     server_addr.sin_port = htons(port_);
     memcpy(&server_addr.sin_addr, hostEntry->h_addr_list[0], hostEntry->h_length);

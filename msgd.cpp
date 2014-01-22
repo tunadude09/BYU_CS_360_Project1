@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-#include "inet-server.h"
+#include "MessagingServer.h"
 
 using namespace std;
 
@@ -13,21 +13,25 @@ main(int argc, char **argv)
     int option, port;
 
     // setup default arguments
-    port = 3000;
+    port = 3002;
+    bool debug = false;
 
     // process command line options using getopt()
     // see "man 3 getopt"
-    while ((option = getopt(argc,argv,"p:")) != -1) {
+    while ((option = getopt(argc,argv,"p:d::")) != -1) {
         switch (option) {
             case 'p':
                 port = atoi(optarg);
                 break;
+            case 'd':
+            	debug = true;
+            	break;
             default:
                 cout << "server [-p port]" << endl;
                 exit(EXIT_FAILURE);
         }
     }
 
-    InetServer server = InetServer(port);
+    MessagingServer server(port, debug);
     server.run();
 }

@@ -2,12 +2,13 @@
 
 Server::Server() {
     // setup variables
+	server_ = 0;
     buflen_ = 1024;
     buf_ = new char[buflen_+1];
 }
 
 Server::~Server() {
-    delete buf_;
+    delete []buf_;
 }
 
 void
@@ -41,7 +42,7 @@ Server::serve() {
 }
 
 void
-Server::handle(int client) {
+Server::handle(int client) {  //  TODO use this for debugging purposes later
     // loop to handle all requests
     while (1) {
         // get a request

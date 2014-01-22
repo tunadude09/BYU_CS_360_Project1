@@ -8,7 +8,7 @@ class InetClient : public Client {
 
 public:
     InetClient(string, int);
-    ~InetClient();
+    virtual ~InetClient();
 
 protected:
     void create();

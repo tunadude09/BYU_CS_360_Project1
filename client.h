@@ -18,9 +18,9 @@ using namespace std;
 class Client {
 public:
     Client();
-    ~Client();
+    virtual ~Client();
 
-    void run();
+    virtual void run();
 
 protected:
     virtual void create();
@@ -28,6 +28,7 @@ protected:
     void echo();
     bool send_request(string);
     bool get_response();
+    virtual void printServerResponse(string response);
 
     int server_;
     int buflen_;

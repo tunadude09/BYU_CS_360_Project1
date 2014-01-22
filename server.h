@@ -16,7 +16,7 @@ using namespace std;
 class Server {
 public:
     Server();
-    ~Server();
+    virtual ~Server();
 
     void run();
     
@@ -24,8 +24,8 @@ protected:
     virtual void create();
     virtual void close_socket();
     void serve();
-    void handle(int);
-    string get_request(int);
+    virtual void handle(int);
+    virtual string get_request(int);
     bool send_response(int, string);
 
     int server_;
